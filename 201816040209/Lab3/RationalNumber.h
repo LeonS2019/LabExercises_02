@@ -2,9 +2,11 @@
 // RationalNumber class definition.
 #ifndef RATIONAL_NUMBER_H
 #define RATIONAL_NUMBER_H
+#include <iostream>
 
 class RationalNumber
 {
+    friend ostream &operator<<(ostream &, RationalNumber &);
 public:
    RationalNumber( int = 0, int = 1 ); // default constructor
    /* Write prototype for operator + */
@@ -31,7 +33,8 @@ public:
    bool operator==(const RationalNumber &);
    /* Write prototype for operator != */
    bool operator!=(const RationalNumber &);
-
+   int getNumerator();
+   int getDenominator();
    void printRational() const; // display rational number
 private:
    int numerator; // private variable numerator

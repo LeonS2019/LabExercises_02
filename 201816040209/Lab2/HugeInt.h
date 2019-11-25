@@ -23,6 +23,10 @@ public:
    // HugeInt + string that represents large integer value
    HugeInt operator+( const char * ) const;
 
+   HugeInt operator-( const HugeInt & ) const;
+   HugeInt operator-( int  ) const;
+   HugeInt operator-( const char * ) const;
+
    /* Write prototypes for the six relational and equality operators */
    bool operator==( const HugeInt &op2);
    bool operator!=( const HugeInt &op2);

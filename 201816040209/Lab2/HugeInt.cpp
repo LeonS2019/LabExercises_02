@@ -93,6 +93,40 @@ HugeInt HugeInt::operator+( const char *op2 ) const
    return *this + HugeInt( op2 );
 } // end function operator+
 
+// decrease operator; HugeInt - HugeInt
+HugeInt HugeInt::operator-( const HugeInt &op2 ) const
+{
+   HugeInt temp; // temporary result
+   int carry = 0;
+
+   for ( int i = 29; i >= 0; i-- )
+   {
+      temp.integer[ i ] =
+         integer[ i ] - op2.integer[ i ] + carry;
+
+      // determine whether to carry a 1
+      if ( temp.integer[ i ] < 0 )
+      {
+         temp.integer[ i ] += 10;  // reduce to 0-9
+         carry = -1;
+      } // end if
+      else // no carry
+         carry = 0;
+   } // end for
+
+   return temp; // return copy of temporary object
+} // end function operator-
+
+HugeInt HugeInt::operator-( const char *op2 ) const
+{
+    return *this-HugeInt(op2);
+}
+
+HugeInt HugeInt::operator-( int op2 ) const
+{
+    return *this-HugeInt(op2);
+}
+
 // equality operator; HugeInt == HugeInt
 /* Write a definition for the == operator */
 bool HugeInt::operator==( const HugeInt &op2)
@@ -154,7 +188,6 @@ bool HugeInt::operator>( const HugeInt &op2)
    by calling the > and == operators */
 bool HugeInt::operator>=( const HugeInt &op2)
 {
-
     return (*this==op2||*this>op2)?true:false;
 }
 // overloaded output operator

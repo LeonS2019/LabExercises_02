@@ -95,6 +95,29 @@ bool RationalNumber::operator!=(const RationalNumber &op2)
 {
     return (*this==op2?false:true);
 }
+
+int RationalNumber::getNumerator()
+{
+    return numerator;
+}
+
+int RationalNumber::getDenominator()
+{
+    return denominator;
+}
+
+ostream &operator<<(ostream &output, RationalNumber &op2)
+{
+   if ( op2.getNumerator() == 0 ) // print fraction as zero
+      output << op2.getNumerator();
+   else if ( op2.getDenominator() == 1 ) // print fraction as integer
+      output << op2.getNumerator();
+   else
+      output << op2.getNumerator() << '/' << op2.getDenominator();
+
+   return output;
+}
+
 // function printRational definition
 void RationalNumber::printRational() const
 {

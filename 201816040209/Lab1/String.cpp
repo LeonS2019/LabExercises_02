@@ -1,7 +1,5 @@
 // Lab 1: String.cpp
 // Member-function definitions for String.cpp
-
-
 #include <iostream>
 using namespace std;
 
@@ -55,7 +53,7 @@ const String String::operator+( const String &right )
 {
    /* Declare a temporary String variable named temp */
    String temp;
-   /* Set temp’s length to be the sum of the two argument Strings?lengthes */
+   /* Set temp’s length to be the sum of the two argument Strings’ lengthes */
    temp.length = this->length + right.length;
    /* Allocate memory for temp.length + 1 chars and assign the pointer to temp.sPtr */
    delete [] temp.sPtr;

@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-   RationalNumber c( 7, 3 ), d( 3, 9 ), x;
+   RationalNumber c( 7, 3 ), d( 0, 9 ), x;
 
    c.printRational();
    cout << " + ";
@@ -15,7 +15,6 @@ int main()
    cout << " = ";
    x = c + d; // test overloaded operators + and =
    x.printRational();
-
    cout << '\n';
    c.printRational();
    cout << " - ";
